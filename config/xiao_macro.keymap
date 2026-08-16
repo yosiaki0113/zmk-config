@@ -1,36 +1,24 @@
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
 
 / {
     keymap {
         compatible = "zmk,keymap";
 
         // レイヤー 0 (通常入力)
+
         default_layer {
             bindings = <
-                &kp Q   // D2
-                &kp E   // D3
-                &kp R   // D4
-                &kp F   // D5
-                &kp N1  // D6
-                &kp N2  // D7
-                &kp N3  // D8
-                &mo 1   // D9: 押している間レイヤー1 (BLE操作) に切り替え
+&kp Q  &kp E  &kp R  &kp F  &kp SPACE  &kp N2  &kp N3  &mo 1
             >;
         };
 
         // レイヤー 1 (Bluetooth / バッテリー操作用)
+
         ble_layer {
             bindings = <
-                &bt BT_SEL 0  // D2: 接続先デバイス 1 に切替
-                &bt BT_SEL 1  // D3: 接続先デバイス 2 に切替
-                &bt BT_CLR    // D4: 現在のペアリング情報を削除
-                &none         // D5
-                &none         // D6
-                &none         // D7
-                &none         // D8
-                &trans        // D9
+&bt BT_SEL 0  &bt BT_SEL 1  &bt BT_CLR  &none  &none  &none  &none  &trans
             >;
         };
     };
