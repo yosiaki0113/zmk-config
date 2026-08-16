@@ -1,12 +1,10 @@
 #include <dt-bindings/zmk/matrix_transform.h>
-#include <dt-bindings/zmk/input_transform.h>
 
 / {
     chosen {
         zmk,kscan = &kscan0;
     };
 
-    // D2〜D9 のボタン設定
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-direct";
         wakeup-source;
@@ -21,29 +19,4 @@
             <&xiao_d 8 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
             <&xiao_d 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
     };
-
-    // アナログスティックの設定 (A0: X軸, A1: Y軸)
-    joystick: analog_input {
-        compatible = "zmk,analog-input";
-        sampling-hz = <100>;
-        x-ch {
-            io-channels = <&adc 0>; // A0ピン
-            mv-mid = <1650>;        // 中央値(mV)
-            mv-deadzone = <200>;     // デッドゾーン(mV)
-            scale-multiplier = <1>;
-            scale-divisor = <1>;
-        };
-        y-ch {
-            io-channels = <&adc 1>; // A1ピン
-            mv-mid = <1650>;        // 中央値(mV)
-            mv-deadzone = <200>;     // デッドゾーン(mV)
-            scale-multiplier = <1>;
-            scale-divisor = <1>;
-        };
-    };
-};
-
-// ADCドライバを有効化
-&adc {
-    status = "okay";
 };
