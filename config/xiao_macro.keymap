@@ -1,8 +1,17 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/input_transform.h>
 
 / {
+
+    /* アナログ入力イベントを WASD に変換 */
+    analog_listener: analog_listener {
+        compatible = "zmk,input-listener";
+        device = <&joystick>;
+
+        input-processors = <&zip_xy_to_wasd>; // 移動軸を WASD にマッピング
+    };
     keymap {
         compatible = "zmk,keymap";
 
