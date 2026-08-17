@@ -2,21 +2,23 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
-    /* アナログ入力を WASD キーイベントへ変換するリスナー定義 */
+    /* アナログ入力リスナー（layers プロパティを追加） */
     joystick_listener: joystick_listener {
         compatible = "zmk,input-listener";
         device = <&joystick>;
 
         /* X軸 (A / D) 判定 */
         x-axis {
-            input-code = <0>; // X軸
+            layers = <0>;           // ★必須: デフォルトレイヤー(0)で有効化
+            input-code = <0>;      // X軸
             map-negative = <&kp A>; // 左（負の方向）
             map-positive = <&kp D>; // 右（正の方向）
         };
 
         /* Y軸 (W / S) 判定 */
         y-axis {
-            input-code = <1>; // Y軸
+            layers = <0>;           // ★必須: デフォルトレイヤー(0)で有効化
+            input-code = <1>;      // Y軸
             map-negative = <&kp W>; // 上（負の方向）
             map-positive = <&kp S>; // 下（正の方向）
         };
