@@ -4,6 +4,13 @@
 #include <dt-bindings/zmk/pointing.h>
 
 / {
+    /* アナログ入力イベントを WASD に変換 */
+    analog_listener: analog_listener {
+        compatible = "zmk,input-listener";
+        device = <&joystick>;
+
+        input-processors = <&zip_xy_to_wasd>; // 移動軸を WASD にマッピング
+    };
     keymap {
         compatible = "zmk,keymap";
 

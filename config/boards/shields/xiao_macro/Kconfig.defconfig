@@ -1,6 +1,12 @@
 if SHIELD_XIAO_MACRO
 
 config ZMK_KEYBOARD_NAME
-    default "XIAO Macro"
+    default "ArmRayker"
+
+config ADC
+    default y
+
+config ZMK_ANALOG_INPUT
+    default y
 
 endif
