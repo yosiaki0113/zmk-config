@@ -3,18 +3,16 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
-/* アナログスティックの入力を WASD キーに変換するリスナー */
+
     joystick_listener {
         compatible = "zmk,input-listener";
         device = <&joystick>;
 
-        /* X軸 (A / D) の判定 */
         x-input {
             input-processors = <&zip_temp_pinnable>;
             bindings = <&kp A &kp D>;
         };
 
-        /* Y軸 (W / S) の判定 */
         y-input {
             input-processors = <&zip_temp_pinnable>;
             bindings = <&kp W &kp S>;
@@ -23,7 +21,6 @@
     keymap {
         compatible = "zmk,keymap";
 
-        // レイヤー 0 (通常入力)
 
         default_layer {
             bindings = <
@@ -31,7 +28,6 @@
             >;
         };
 
-        // レイヤー 1 (Bluetooth / バッテリー操作用)
 
         ble_layer {
             bindings = <
