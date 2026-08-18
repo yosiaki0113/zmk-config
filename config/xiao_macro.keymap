@@ -2,39 +2,13 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
-    /* アナログ入力リスナー（layers プロパティを追加） */
-    joystick_listener: joystick_listener {
-        compatible = "zmk,input-listener";
-        device = <&joystick>;
-
-        /* X軸 (A / D) 判定 */
-        x-axis {
-            layers = <0>;           // ★必須: デフォルトレイヤー(0)で有効化
-            input-code = <0>;      // X軸
-            map-negative = <&kp A>; // 左（負の方向）
-            map-positive = <&kp D>; // 右（正の方向）
-        };
-
-        /* Y軸 (W / S) 判定 */
-        y-axis {
-            layers = <0>;           // ★必須: デフォルトレイヤー(0)で有効化
-            input-code = <1>;      // Y軸
-            map-negative = <&kp W>; // 上（負の方向）
-            map-positive = <&kp S>; // 下（正の方向）
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
         /* レイヤー 0 (通常入力) */
         default_layer {
             bindings = <
-<<<<<<< HEAD
-&kp Q  &kp E  &kp R  &kp F  &kp SPACE  &kp N2  &kp N5  &mo 1
-=======
                 &kp Q    &kp E    &kp R    &kp F    &kp SPACE    &kp N2    &kp N3    &mo 1
->>>>>>> 76afc946aff9923327d2cabe2d3c607453a72a12
             >;
         };
 
